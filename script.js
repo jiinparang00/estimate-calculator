@@ -435,3 +435,32 @@ resetEstimateButton.addEventListener("click", () => {
     updateLengthMode();
     calculateEstimate();
 });
+
+/* ==========================
+   iframe 높이 자동 전달
+========================== */
+
+function sendIframeHeight() {
+    const height = document.documentElement.scrollHeight;
+
+    window.parent.postMessage(
+        {
+            type: "estimate-calculator-height",
+            height: height
+        },
+        "*"
+    );
+}
+
+// 처음 로드됐을 때
+window.addEventListener("load", sendIframeHeight);
+
+// 화면 크기가 바뀔 때
+window.addEventListener("resize", sendIframeHeight);
+
+// 옵션 체크, 수량칸 표시 등으로 높이가 바뀔 때
+const resizeObserver = new ResizeObserver(() => {
+    sendIframeHeight();
+});
+
+resizeObserver.observe(document.body);
