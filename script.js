@@ -445,26 +445,33 @@ resetEstimateButton.addEventListener("click", () => {
 ========================== */
 
 function sendIframeHeight() {
-    const height = document.documentElement.scrollHeight;
+    const calculatorCard = document.querySelector(".calculator-card");
+
+    if (!calculatorCard) return;
+
+    const cardHeight = calculatorCard.getBoundingClientRect().height;
+
+    // 위아래 여백 40px씩 포함
+    const iframeHeight = Math.ceil(cardHeight + 80);
 
     window.parent.postMessage(
         {
             type: "estimate-calculator-height",
-            height: height
+            height: iframeHeight
         },
         "*"
     );
 }
 
-// 처음 로드됐을 때
 window.addEventListener("load", sendIframeHeight);
-
-// 화면 크기가 바뀔 때
 window.addEventListener("resize", sendIframeHeight);
 
-// 옵션 체크, 수량칸 표시 등으로 높이가 바뀔 때
-const resizeObserver = new ResizeObserver(() => {
-    sendIframeHeight();
-});
+const calculatorCard = document.querySelector(".calculator-card");
 
-resizeObserver.observe(document.body);
+if (calculatorCard) {
+    const resizeObserver = new ResizeObserver(() => {
+        sendIframeHeight();
+    });
+
+    resizeObserver.observe(calculatorCard);
+}
