@@ -7,7 +7,7 @@ body{
 
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
 
     min-height:100vh;
 }
@@ -559,6 +559,23 @@ body{
     background:#0d2b78;
     border-color:#0d2b78;
     transform:translateY(-1px);
+}
+
+/* 아트머그 iframe 임베드 시 여백 제거 */
+html.is-embedded,
+html.is-embedded body {
+    min-height: 0;
+    height: auto;
+}
+
+html.is-embedded body {
+    display: block;
+}
+
+html.is-embedded .container {
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* ================================

@@ -1,3 +1,7 @@
+if (window.self !== window.top) {
+    document.documentElement.classList.add("is-embedded");
+}
+
 /* ============================
    추가 옵션 항목 선택
 ============================ */
