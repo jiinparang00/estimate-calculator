@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>진파랑 포트폴리오</title>
+
+    <link
+        rel="stylesheet"
+        as="style"
+        crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    >
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- 전체 컨테이너 -->
+    <!-- ========================= -->
+    <div class="container">
+
+        <!-- ========================= -->
+        <!-- 견적 계산기 카드 -->
+        <!-- ========================= -->
+        <div class="calculator-card">
+
+            <!-- ========================= -->
+            <!-- 카드 제목 -->
+            <!-- ========================= -->
+            <div class="card-header">
+
+                <h1>견적 계산기</h1>
+
+                <p>
+                    원하시는 작업 내용을 선택하면 예상 견적이 자동으로 계산됩니다.
+                </p>
+
+            </div>
+
+            <div class="calculator-layout">
+
+                <!-- 왼쪽 입력 영역 -->
+                <div class="calculator-inputs">
+
+                    <!-- ========================= -->
+                    <!-- 신청 유형 -->
+                    <!-- ========================= -->
+                    <div class="section work-type-section">
+
+                        <h2>▪ 신청 유형</h2>
+
+                        <div class="work-type-options">
+
+                            <button
+                                type="button"
+                                class="work-type-card active"
+                                data-price="15000"
+                                data-type="longform"
+                            >
+                                <strong>롱폼(컷편집 완료)</strong>
+                                <span>분당 15,000원</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="work-type-card"
+                                data-price="17000"
+                                data-type="longform"
+                            >
+                                <strong>롱폼(편집점 제공)</strong>
+                                <span>분당 17,000원</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="work-type-card"
+                                data-price="20000"
+                                data-type="longform"
+                            >
+                                <strong>롱폼(편집점 미제공)</strong>
+                                <span>분당 20,000원</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="work-type-card"
+                                data-price="20000"
+                                data-type="shorts"
+                            >
+                                <strong>쇼츠(편집점 필수)</strong>
+                                <span>건당 20,000원</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ========================= -->
+                    <!-- 희망 영상 길이 -->
+                    <!-- ========================= -->
+                    <div class="section video-length-section">
+
+                        <h2 id="length-title">▪ 희망 영상 길이</h2>
+
+                        <div class="length-control">
+
+                            <div class="length-value">
+
+                                <input
+                                    type="number"
+                                    id="length-number"
+                                    max="60"
+                                    value="10"
+                                >
+
+                                <span id="length-unit">분</span>
+
+                            </div>
+
+                            <input
+                                type="range"
+                                id="length-range"
+                                min="1"
+                                max="60"
+                                value="10"
+                                step="1"
+                            >
+
+                        </div>
+
+                        <p class="length-guide" id="length-guide">
+                            슬라이더를 움직이거나 숫자를 직접 입력해 주세요
+                        </p>
+
+                    </div>
+
+                    <!-- ========================= -->
+                    <!-- 추가 옵션 -->
+                    <!-- ========================= -->
+                    <div class="section option-section">
+                    
+                        <h2>▪ 추가 옵션</h2>
+
+                        <div class="option-list">
+
+                            <!-- 수정 횟수 추가 -->
+                            <div class="option-item option-item-with-quantity" data-price="5000">
+
+                                <label class="option-main">
+
+                                    <input type="checkbox" class="option-checkbox">
+
+                                    <div class="option-text">
+                                        <strong>수정 횟수 추가(기본 3회)</strong>
+                                        <span>1회당 +5,000원</span>
+                                    </div>
+
+                                </label>
+
+                                <div class="option-quantity">
+                                    <span>추가 수정 횟수</span>
+
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        value="1"
+                                    >
+
+                                    <span>회</span>
+                                </div>
+
+                            </div>
+
+                            <!-- 합방 멤버 추가 -->
+                            <div class="option-item option-item-with-quantity" data-price="5000">
+
+                                <label class="option-main">
+
+                                    <input type="checkbox" class="option-checkbox">
+
+                                    <div class="option-text">
+                                        <strong>합방 멤버 추가(기본 3명)</strong>
+                                        <span>1명당 +5,000원</span>
+                                    </div>
+
+                                </label>
+
+                                <div class="option-quantity">
+                                    <span>추가 인원</span>
+
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        value="1"
+                                    >
+
+                                    <span>명</span>
+                                </div>
+
+                            </div>
+
+                            <!-- 영상 시점 추가 -->
+                            <div class="option-item option-item-with-quantity" data-price="10000">
+
+                                <label class="option-main">
+
+                                    <input type="checkbox" class="option-checkbox">
+
+                                    <div class="option-text">
+                                        <strong>타 스트리머 시점 추가</strong>
+                                        <span>시점 1개당 +10,000원</span>
+                                    </div>
+
+                                </label>
+
+                                <div class="option-quantity">
+                                    <span>추가 시점</span>
+
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        value="1"
+                                    >
+
+                                    <span>개</span>
+                                </div>
+
+                            </div>
+
+                            <!-- 원본 영상 추가 -->
+                            <div class="option-item option-item-with-quantity" data-price="10000">
+
+                                <label class="option-main">
+
+                                    <input type="checkbox" class="option-checkbox">
+
+                                    <div class="option-text">
+                                        <strong>원본 영상 2시간 초과 시</strong>
+                                        <span>1시간당 +10,000원</span>
+                                    </div>
+
+                                </label>
+
+                                <div class="option-quantity">
+                                    <span>추가 시간</span>
+
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        value="1"
+                                    >
+
+                                    <span>시간</span>
+                                </div>
+
+                            </div>
+
+                            <!-- 포트폴리오 미사용 -->
+                            <div class="option-item" data-price="30000">
+
+                                <label class="option-main">
+
+                                    <input type="checkbox">
+
+                                    <div class="option-text">
+                                        <strong>포트폴리오 미사용</strong>
+                                        <span>+30,000원</span>
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <!-- 오른쪽 예상 견적 영역 -->
+                <div class="calculator-result">
+                    <!-- ========================= -->
+                    <!-- 예상 견적 -->
+                    <!-- ========================= -->
+                    <div class="section result-section">
+
+                        <div class="estimate-result">
+
+                            <!-- 예상 견적 헤더 -->
+                            <div class="estimate-header">
+                                <div class="estimate-header-icon">
+                                    💳
+                                </div>
+
+                                <div class="estimate-header-text">
+                                    <h3>예상 견적</h3>
+                                    <p>선택 항목을 기준으로 예상 금액을 계산합니다.</p>
+                                </div>
+                            </div>
+
+                            <!-- 기본 작업 내역 -->
+                            <div class="estimate-summary">
+
+                                <!-- 신청 유형 -->
+                                <div class="estimate-row">
+                                    <span>신청 유형</span>
+                                    <strong id="estimate-work-type">
+                                        롱폼(컷편집 완료)
+                                    </strong>
+                                </div>
+
+                                <!-- 기본 단가 -->
+                                <div class="estimate-row">
+                                    <span>기본 단가</span>
+                                    <strong id="estimate-unit-price">
+                                        분당 15,000원
+                                    </strong>
+                                </div>
+
+                                <!-- 희망 길이 -->
+                                <div class="estimate-row">
+                                    <span id="estimate-amount-label">희망 길이</span>
+                                    <strong id="estimate-amount">
+                                        10분
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                                <!-- 기본 금액 -->
+                                <div class="estimate-row estimate-base-total">
+                                    <span>총 기본 금액</span>
+                                    <strong id="estimate-base-price">
+                                        150,000원
+                                    </strong>
+                                </div>
+
+                            <!-- 선택한 추가 옵션 내역 -->
+                            <div class="estimate-options">
+
+                                <h3>추가 옵션</h3>
+
+                                <div id="estimate-option-list">
+                                    <p class="estimate-empty">
+                                        선택한 추가 옵션이 없습니다.
+                                    </p>
+                                </div>
+
+                                <div class="estimate-option-total">
+                                    <span>총 추가 금액</span>
+                                    <strong id="estimate-option-total">0원</strong>
+                                </div>
+
+                            </div>
+
+                            <!-- 최종 합계 -->
+                            <div class="estimate-total">
+
+                                <span>총 예상 금액</span>
+
+                                <strong id="estimate-price">
+                                    150,000원
+                                </strong>
+
+                            </div>
+
+                            <p class="estimate-notice">
+                                최종 금액은 상담 내용에 따라 변동될 수 있습니다.
+                            </p>
+
+                            <!-- 견적 버튼 -->
+                            <div class="estimate-actions">
+
+                                <button
+                                    type="button"
+                                    id="reset-estimate"
+                                    class="estimate-reset-button"
+                                >
+                                    선택 초기화
+                                </button>
+
+                                    <button
+                                        type="button"
+                                        id="contact-button"
+                                        class="estimate-contact-button"
+                                    >
+                                        견적서 복사
+                                    </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
